@@ -3,22 +3,25 @@
 
 """
 Validates a data file against a specified data contract using Pydantic.
+This version includes advanced validation for formats, patterns, and enums.
 """
 
 import json
+from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, List, Tuple, Type
+from typing import Any, Dict, List, Tuple, Type, Optional
 
 import typer
 import yaml
-from pydantic import BaseModel, create_model
+from pydantic import BaseModel, EmailStr, Field, create_model
+from pydantic.functional_validators import AfterValidator
 
 app = typer.Typer()
 
 # --- Pydantic Model Generation from YAML ---
 
-# A mapping from YAML types to Python types
-YAML_TO_PYTHON_TYPE_MAP = {
+# A mapping from YAML types to Python/Pydantic types
+YAML_TO_PYDANTIC_TYPE_MAP = {
     "string": str,
     "number": float,
     "integer": int,
@@ -29,7 +32,8 @@ YAML_TO_PYTHON_TYPE_MAP = {
 
 def create_pydantic_model_from_contract(contract_path: Path) -> Type[BaseModel]:
     """
-    Dynamically creates a Pydantic model from a YAML data contract.
+    Dynamically creates a Pydantic model from a YAML data contract,
+    including advanced validation rules like enums, patterns, and formats.
 
     Args:
         contract_path: Path to the YAML data contract file.
@@ -49,21 +53,38 @@ def create_pydantic_model_from_contract(contract_path: Path) -> Type[BaseModel]:
         typer.secho("Contract is missing 'schema' definition.", fg=typer.colors.RED)
         raise typer.Exit(code=1)
 
-    fields: Dict[str, Tuple[Any, ...]] = {}
+    fields: Dict[str, Any] = {}
     for field_name, properties in schema.items():
         field_type_str = properties.get("type")
-        python_type = YAML_TO_PYTHON_TYPE_MAP.get(field_type_str)
+        python_type = YAML_TO_PYDANTIC_TYPE_MAP.get(field_type_str, Any)
 
-        if python_type is None:
-            typer.secho(f"Unsupported type '{field_type_str}' for field '{field_name}'.", fg=typer.colors.RED)
-            raise typer.Exit(code=1)
+        # --- Advanced Validation ---
+        field_validators = []
+
+        # Handle enums
+        if "enum" in properties:
+            enum_name = f"{field_name.capitalize()}Enum"
+            python_type = Enum(enum_name, {v: v for v in properties["enum"]})
+
+        # Handle string formats and patterns
+        if python_type is str:
+            if properties.get("format") == "email":
+                python_type = EmailStr
+            
+            pattern = properties.get("pattern")
+            if pattern:
+                # Pydantic v2 uses Field for constraints
+                 field_validators.append(Field(pattern=pattern))
+
+
+        # Determine if the field is required
+        default_value = ... if properties.get("required", False) else None
         
-        # For simplicity, we make all fields required if not specified otherwise
-        # Pydantic v2 uses '...' for required fields
-        if properties.get("required", False):
-            fields[field_name] = (python_type, ...)
+        if field_validators:
+             fields[field_name] = (python_type, field_validators[0])
         else:
-            fields[field_name] = (python_type, None)
+            fields[field_name] = (python_type, default_value)
+
 
     Model = create_model("ContractModel", **fields)
     return Model
@@ -87,7 +108,7 @@ def validate(
     """
     typer.echo(f"Loading contract from: {contract_file}")
     ContractModel = create_pydantic_model_from_contract(contract_file)
-    typer.secho("Contract model created successfully.", fg=typer.colors.BLUE)
+    typer.secho("Contract model created successfully with advanced validation.", fg=typer.colors.BLUE)
 
     typer.echo(f"Loading data from: {data_file}")
     try:
@@ -104,10 +125,11 @@ def validate(
     valid_records: List[Dict] = []
     invalid_records: List[Dict] = []
     
-    typer.echo(f"Validating {len(data)} records...")
+    typer.echo(f"Validating {len(data)} records with strict rules...")
     
     for i, record in enumerate(data):
         try:
+            # Pydantic v2 uses model_validate
             ContractModel.model_validate(record)
             valid_records.append(record)
         except Exception as e:
@@ -122,10 +144,7 @@ def validate(
         for invalid in invalid_records:
             typer.echo(json.dumps(invalid, indent=2))
         
-        # In a real pipeline, you would move the invalid file to a "rejected" area
-        # e.g., gsutil mv {data_file} gs://{bucket}/rejected/{data_file.name}
-        
-        raise typer.Exit(code=1) # Exit with error code if validation fails
+        raise typer.Exit(code=1)
 
 if __name__ == "__main__":
     app()

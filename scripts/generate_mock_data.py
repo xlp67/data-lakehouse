@@ -3,6 +3,7 @@
 
 """
 Generates mock transaction data based on the defined data contract.
+Can optionally include invalid records for testing validation scripts.
 """
 
 import json
@@ -19,13 +20,27 @@ fake = Faker("pt_BR")
 
 app = typer.Typer()
 
-def generate_transaction() -> Dict[str, Any]:
+def generate_transaction(is_invalid: bool = False) -> Dict[str, Any]:
     """
     Generates a single mock transaction record.
+
+    Args:
+        is_invalid: If True, generates a record that violates the data contract.
 
     Returns:
         A dictionary representing a single transaction.
     """
+    if is_invalid:
+        return {
+            "transaction_id": str(uuid.uuid4()),
+            "user_id": str(uuid.uuid4()),
+            "user_email": "not-an-email",  # Invalid email format
+            "user_cpf": "12345",  # Invalid CPF pattern
+            "transaction_amount": -50.0,  # Invalid amount (should be positive)
+            "transaction_timestamp": fake.iso8601(),
+            "payment_method": "cash",  # Invalid enum value
+        }
+
     return {
         "transaction_id": str(uuid.uuid4()),
         "user_id": str(uuid.uuid4()),
@@ -39,6 +54,7 @@ def generate_transaction() -> Dict[str, Any]:
 @app.command()
 def generate(
     num_records: int = typer.Option(100, "--num-records", "-n", help="Number of mock records to generate."),
+    num_invalid: int = typer.Option(0, "--num-invalid", "-i", help="Number of invalid records to inject."),
     output_file: Path = typer.Option(
         "mock_transactions.json",
         "--output-file",
@@ -51,9 +67,15 @@ def generate(
     """
     Creates a file with mock transaction data.
     """
-    typer.echo(f"Generating {num_records} mock transaction records...")
+    if num_invalid > num_records:
+        typer.secho("Number of invalid records cannot exceed total number of records.", fg=typer.colors.RED)
+        raise typer.Exit(code=1)
 
-    mock_data: List[Dict[str, Any]] = [generate_transaction() for _ in range(num_records)]
+    typer.echo(f"Generating {num_records} total records ({num_invalid} invalid)...")
+
+    mock_data: List[Dict[str, Any]] = []
+    for i in range(num_records):
+        mock_data.append(generate_transaction(is_invalid=(i < num_invalid)))
 
     try:
         with open(output_file, "w") as f:
