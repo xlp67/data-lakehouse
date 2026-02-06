@@ -48,6 +48,14 @@ jobs:
         with:
           python-version: '3.10'
 
+      - name: Cache de dependências Pip
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: Instalar dependências Python
         run: |
           python -m venv .venv
@@ -89,14 +97,14 @@ jobs:
   # ===============================================================
   deploy:
     name: Implantação Contínua (CD)
-    needs: ci # Este job só executa se o 'ci' for bem-sucedido
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push' # Apenas na branch 'main'
+    needs: ci
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     runs-on: ubuntu-latest
     
     environment:
       name: production
-      url: 'https://console.cloud.google.com' # URL para o ambiente
+      url: 'https://console.cloud.google.com'
 
     steps:
       - name: Checkout do repositório
