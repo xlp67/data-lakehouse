@@ -1,4 +1,4 @@
-name: CI do Pipeline de Dados
+name: CI/CD do Pipeline de Dados
 
 on:
   push:
@@ -12,21 +12,21 @@ on:
       - 'terraform/**'
 
 jobs:
+  # ===============================================================
+  # Job de CI: Valida, Testa e Planeja
+  # ===============================================================
   ci:
-    name: Integração Contínua
+    name: Integração Contínua (CI)
     runs-on: ubuntu-latest
 
     permissions:
       contents: 'read'
-      id-token: 'write' # Necessário para Workload Identity Federation
+      id-token: 'write'
 
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v4
 
-      # -------------------------------------------
-      # 1. Autenticação GCP
-      # -------------------------------------------
       - name: Autenticar no Google Cloud
         id: auth
         uses: 'google-github-actions/auth@v2'
@@ -34,9 +34,6 @@ jobs:
           workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
           service_account: '${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}'
 
-      # -------------------------------------------
-      # 2. Linting & Formatação
-      # -------------------------------------------
       - name: Configurar Terraform
         uses: hashicorp/setup-terraform@v2
         with:
@@ -63,9 +60,6 @@ jobs:
       - name: Formatação de Python (Black)
         run: .venv/bin/black --check .
       
-      # -------------------------------------------
-      # 3. Plano de Infraestrutura (Terraform)
-      # -------------------------------------------
       - name: Terraform Init
         id: init
         run: terraform init -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}"
@@ -79,9 +73,6 @@ jobs:
             -out=tfplan
         working-directory: ./terraform
 
-      # -------------------------------------------
-      # 4. Validação e Transformação de Dados (Python & dbt)
-      # -------------------------------------------
       - name: Gatekeeper de Qualidade de Dados
         run: |
           .venv/bin/python scripts/generate_mock_data.py --output-file mock_transactions.json
@@ -91,16 +82,45 @@ jobs:
         env:
           DBT_PII_SALT_SECRET: ${{ secrets.PII_SALT_SECRET }}
         run: |
-          # Este passo requer que o dbt seja configurado com credenciais para acessar o BigQuery.
-          # Para um ambiente de CI, isso é tipicamente feito via um arquivo profiles.yml
-          # que usa as credenciais padrão da aplicação obtidas no passo de 'auth'.
           .venv/bin/dbt build --project-dir ./dbt_project
 
-      # -------------------------------------------
-      # 5. Verificação de Segurança (Placeholder)
-      # -------------------------------------------
-      - name: Verificação de Segurança
+  # ===============================================================
+  # Job de CD: Implanta a infraestrutura após aprovação
+  # ===============================================================
+  deploy:
+    name: Implantação Contínua (CD)
+    needs: ci # Este job só executa se o 'ci' for bem-sucedido
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push' # Apenas na branch 'main'
+
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: production
+      url: 'https://console.cloud.google.com' # URL para o ambiente
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Autenticar no Google Cloud
+        id: auth
+        uses: 'google-github-actions/auth@v2'
+        with:
+          workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
+          service_account: '${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}'
+          
+      - name: Configurar Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.5.0
+
+      - name: Terraform Init
+        id: init
+        run: terraform init -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}"
+        working-directory: ./terraform
+
+      - name: Terraform Apply
         run: |
-          echo "Verificando segredos hardcoded e PII exposta..."
-          # Exemplo: gitleaks detect --source . --verbose
-          echo "Verificação de segurança (placeholder) concluída."
+          terraform apply -auto-approve \
+            -var="gcp_project_id=${{ secrets.GCP_PROJECT_ID }}"
+        working-directory: ./terraform
