@@ -24,44 +24,28 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # -------------------------------------------
+      # ------------------------------------------- 
       # 1. GCP Authentication
-      # -------------------------------------------
+      # ------------------------------------------- 
       - name: Authenticate to Google Cloud
         id: auth
         uses: 'google-github-actions/auth@v2'
         with:
-          # This is the recommended approach for GCP authentication from GitHub Actions.
-          # You must configure WIF in your GCP project and add the provider URL to this repo's secrets.
-          workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}' # e.g., projects/12345/locations/global/workloadIdentityPools/my-pool/providers/my-provider
-          service_account: '${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}' # The email of the SA to impersonate
+          workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
+          service_account: '${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}'
 
-      # -------------------------------------------
-      # 2. Infrastructure Plan (Terraform)
-      # -------------------------------------------
+      # ------------------------------------------- 
+      # 2. Linting & Formatting
+      # ------------------------------------------- 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.5.0
 
-      - name: Terraform Init
-        id: init
-        run: terraform init
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
         working-directory: ./terraform
 
-      - name: Terraform Plan
-        id: plan
-        run: |
-          terraform plan \
-            -var="gcp_project_id=${{ secrets.GCP_PROJECT_ID }}" \
-            -out=tfplan
-        working-directory: ./terraform
-        # In a PR context, you could add a step here to comment the plan output
-        # using a tool like `tfcmt`.
-
-      # -------------------------------------------
-      # 3. Data Validation & Transformation (Python & dbt)
-      # -------------------------------------------
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -71,33 +55,52 @@ jobs:
         run: |
           python -m venv .venv
           source .venv/bin/activate
-          pip install -r requirements.txt # Note: You should create a requirements.txt
+          pip install -r requirements.txt
 
-      - name: Generate mock data for validation
-        run: .venv/bin/python scripts/generate_mock_data.py --output-file mock_transactions.json
+      - name: Python Linting (Ruff)
+        run: .venv/bin/ruff check .
 
+      - name: Python Formatting (Black)
+        run: .venv/bin/black --check .
+      
+      # ------------------------------------------- 
+      # 3. Infrastructure Plan (Terraform)
+      # ------------------------------------------- 
+      - name: Terraform Init
+        id: init
+        run: terraform init -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}"
+        working-directory: ./terraform
+
+      - name: Terraform Plan
+        id: plan
+        run: |
+          terraform plan \
+            -var="gcp_project_id=${{ secrets.GCP_PROJECT_ID }}" \
+            -out=tfplan
+        working-directory: ./terraform
+
+      # ------------------------------------------- 
+      # 4. Data Validation & Transformation (Python & dbt)
+      # ------------------------------------------- 
       - name: Data Quality Gatekeeper
-        run: .venv/bin/python scripts/validate_contract.py --data-file mock_transactions.json
-
-      # The dbt-bigquery adapter needs to be installed
-      - name: Install dbt
-        run: .venv/bin/pip install dbt-bigquery
+        run: |
+          .venv/bin/python scripts/generate_mock_data.py --output-file mock_transactions.json
+          .venv/bin/python scripts/validate_contract.py --data-file mock_transactions.json --contract ./contracts/transactions_v1.yaml
 
       - name: Run dbt models
         env:
-          # This secret must be added to your GitHub repository secrets
           DBT_PII_SALT_SECRET: ${{ secrets.PII_SALT_SECRET }}
         run: |
-          # In a real project, dbt would be configured to connect to your BQ project.
-          # This step just compiles the models to check for SQL validity.
+          # This step requires dbt to be configured with credentials to access BigQuery.
+          # For a CI environment, this is typically done via a profiles.yml file
+          # that uses the application default credentials from the 'auth' step.
           .venv/bin/dbt build --project-dir ./dbt_project
 
-      # -------------------------------------------
-      # 4. Security Scan (Placeholder)
-      # -------------------------------------------
+      # ------------------------------------------- 
+      # 5. Security Scan (Placeholder)
+      # ------------------------------------------- 
       - name: Security Scan
         run: |
           echo "Scanning for hardcoded secrets and exposed PII..."
-          # In a real pipeline, you would use a tool like gitleaks, trufflehog, or a SaaS solution.
           # Example: gitleaks detect --source . --verbose
           echo "Security scan placeholder complete."

@@ -8,7 +8,6 @@ Can optionally include invalid records for testing validation scripts.
 
 import json
 import uuid
-from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any
 
@@ -19,6 +18,7 @@ from faker import Faker
 fake = Faker("pt_BR")
 
 app = typer.Typer()
+
 
 def generate_transaction(is_invalid: bool = False) -> Dict[str, Any]:
     """
@@ -46,15 +46,24 @@ def generate_transaction(is_invalid: bool = False) -> Dict[str, Any]:
         "user_id": str(uuid.uuid4()),
         "user_email": fake.email(),
         "user_cpf": fake.cpf().replace(".", "").replace("-", ""),
-        "transaction_amount": round(fake.random_number(digits=4, fix_len=False) / 100, 2),
+        "transaction_amount": round(
+            fake.random_number(digits=4, fix_len=False) / 100, 2
+        ),
         "transaction_timestamp": fake.iso8601(),
-        "payment_method": fake.random_element(elements=("credit_card", "debit_card", "pix", "boleto")),
+        "payment_method": fake.random_element(
+            elements=("credit_card", "debit_card", "pix", "boleto")
+        ),
     }
+
 
 @app.command()
 def generate(
-    num_records: int = typer.Option(100, "--num-records", "-n", help="Number of mock records to generate."),
-    num_invalid: int = typer.Option(0, "--num-invalid", "-i", help="Number of invalid records to inject."),
+    num_records: int = typer.Option(
+        100, "--num-records", "-n", help="Number of mock records to generate."
+    ),
+    num_invalid: int = typer.Option(
+        0, "--num-invalid", "-i", help="Number of invalid records to inject."
+    ),
     output_file: Path = typer.Option(
         "mock_transactions.json",
         "--output-file",
@@ -68,7 +77,10 @@ def generate(
     Creates a file with mock transaction data.
     """
     if num_invalid > num_records:
-        typer.secho("Number of invalid records cannot exceed total number of records.", fg=typer.colors.RED)
+        typer.secho(
+            "Number of invalid records cannot exceed total number of records.",
+            fg=typer.colors.RED,
+        )
         raise typer.Exit(code=1)
 
     typer.echo(f"Generating {num_records} total records ({num_invalid} invalid)...")
@@ -80,10 +92,13 @@ def generate(
     try:
         with open(output_file, "w") as f:
             json.dump(mock_data, f, indent=2)
-        typer.secho(f"Successfully generated data in {output_file}", fg=typer.colors.GREEN)
+        typer.secho(
+            f"Successfully generated data in {output_file}", fg=typer.colors.GREEN
+        )
     except IOError as e:
         typer.secho(f"Error writing to file {output_file}: {e}", fg=typer.colors.RED)
         raise typer.Exit(code=1)
+
 
 if __name__ == "__main__":
     app()

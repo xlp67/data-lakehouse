@@ -16,7 +16,7 @@ resource "google_storage_bucket" "bucket" {
       age = var.lifecycle_age_days
     }
     action {
-      type = "SetStorageClass"
+      type          = "SetStorageClass"
       storage_class = "NEARLINE"
     }
   }
