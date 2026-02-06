@@ -20,7 +20,7 @@ SELECT
     CAST(transaction_timestamp AS TIMESTAMP) as transaction_timestamp,
     LOWER(payment_method) as payment_method
 
-FROM {{ ref('transactions_raw') }}
+FROM {{ source('raw_lakehouse_data', 'transactions_raw') }}
 WHERE
     -- Basic data quality check
     transaction_amount > 0

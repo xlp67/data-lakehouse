@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: raw_lakehouse_data
+    description: "Source data ingested into the Bronze layer of the lakehouse."
+    # For BigQuery, the database is the GCP project ID.
+    # We can use a variable to make this dynamic.
+    database: "{{ var('gcp_project_id') }}"
+    schema: "bronze" # This should match the BigQuery dataset name
+    tables:
+      - name: transactions_raw
+        description: "Raw transactions table loaded from GCS."
+        # In a real scenario, you would configure freshness tests here.
+        # loaded_at_field: _loaded_at_timestamp
+        # freshness:
+        #   warn_after: {count: 12, period: hour}
+        #   error_after: {count: 24, period: hour}

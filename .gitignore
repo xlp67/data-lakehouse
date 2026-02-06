@@ -12,6 +12,10 @@ __pycache__/
 tfplan
 .terraform.lock.hcl
 
+# dbt
+dbt_packages/
+logs/
+
 # IDE / OS specific
 .idea/
 .vscode/
