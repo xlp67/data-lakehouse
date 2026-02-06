@@ -1,0 +1,35 @@
+# models/silver/schema.yml
+version: 2
+
+models:
+  - name: transactions_cleansed
+    description: "Cleansed and anonymized transaction data. This table is the source of truth for trusted data, with PII (Personally Identifiable Information) hashed."
+    columns:
+      - name: transaction_id
+        description: "Unique identifier for the transaction."
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: "Unique identifier for the user."
+        tests:
+          - not_null
+      - name: user_email_hashed
+        description: "The user's email address, hashed with SHA256 and a secret salt. This is considered PII."
+        tags: ['pii']
+      - name: user_cpf_hashed
+        description: "The user's CPF number, hashed with SHA256 and a secret salt. This is considered PII."
+        tags: ['pii']
+      - name: transaction_amount
+        description: "The monetary value of the transaction."
+        tests:
+          - dbt_expectations.expect_column_values_to_be_positive
+      - name: transaction_timestamp
+        description: "The timestamp when the transaction occurred."
+        tests:
+          - not_null
+      - name: payment_method
+        description: "The payment method used."
+        tests:
+          - accepted_values:
+              values: ['credit_card', 'debit_card', 'pix', 'boleto']

@@ -1,0 +1,902 @@
+[
+  {
+    "transaction_id": "230faca3-618c-416e-bc8f-0f9416d2f379",
+    "user_id": "0066ae80-3d18-466c-871a-06c747549424",
+    "user_email": "luiz-felipe63@example.net",
+    "user_cpf": "15974630866",
+    "transaction_amount": 19.07,
+    "transaction_timestamp": "2012-05-22T21:09:34.680542",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "bc7c3cca-834a-41fd-95fc-507faa198f14",
+    "user_id": "646fcb36-ba6b-40c8-91d3-58bbf6300543",
+    "user_email": "jaraujo@example.org",
+    "user_cpf": "07459381675",
+    "transaction_amount": 57.36,
+    "transaction_timestamp": "2024-01-06T07:37:38.392641",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "5c8f8466-52ad-46f4-bc63-016ed04720bb",
+    "user_id": "05ed357d-ba46-4e1a-a400-34cdb1ac61a5",
+    "user_email": "hpires@example.org",
+    "user_cpf": "81935027441",
+    "transaction_amount": 2.38,
+    "transaction_timestamp": "2021-09-04T04:26:25.695644",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "f1afa7b4-d5f9-48d5-a7fd-4fffd0081cbb",
+    "user_id": "d90d9d85-977e-470b-b8b3-b3434166529c",
+    "user_email": "bellapereira@example.net",
+    "user_cpf": "13670285903",
+    "transaction_amount": 85.12,
+    "transaction_timestamp": "2011-01-10T05:59:21.029850",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "f83a00ec-fedc-46e6-abf0-6a28f68550af",
+    "user_id": "fc2b650e-5edb-4cc7-b260-3f3b218e21c4",
+    "user_email": "eduarda37@example.net",
+    "user_cpf": "25904387105",
+    "transaction_amount": 78.68,
+    "transaction_timestamp": "2013-09-15T13:57:40.792316",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "e3ad71c4-32d5-4626-b269-30033cdff31e",
+    "user_id": "e73fc89f-27e2-4a95-bb64-9959f3aa3527",
+    "user_email": "cnunes@example.org",
+    "user_cpf": "74536819010",
+    "transaction_amount": 67.73,
+    "transaction_timestamp": "1992-07-20T22:42:32.039919",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "eaa449ab-071b-4a73-9791-8d25338e6372",
+    "user_id": "e68cdb36-9f8d-45a4-96b6-8402259bea5c",
+    "user_email": "gabriela51@example.com",
+    "user_cpf": "89203546189",
+    "transaction_amount": 68.75,
+    "transaction_timestamp": "1987-01-19T15:31:50.112434",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "10de0349-4f0d-4b53-b8aa-59392a33c494",
+    "user_id": "65009326-08cd-4bf0-b2db-9240be056a53",
+    "user_email": "hda-cunha@example.net",
+    "user_cpf": "18546732035",
+    "transaction_amount": 62.91,
+    "transaction_timestamp": "2013-05-01T13:31:44.948295",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "709de2de-f4de-4699-b2d1-8efaebe83ce7",
+    "user_id": "a7bdd116-8c19-4f94-9575-1ac1f21d352b",
+    "user_email": "ivargas@example.com",
+    "user_cpf": "98170364566",
+    "transaction_amount": 5.42,
+    "transaction_timestamp": "1980-03-01T09:32:04.059712",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "8d6de2db-9baa-4388-a628-de8733a98dd8",
+    "user_id": "92733450-8076-4ddc-ae9c-dbba35770337",
+    "user_email": "ggoncalves@example.net",
+    "user_cpf": "30821456989",
+    "transaction_amount": 63.91,
+    "transaction_timestamp": "2022-12-24T11:08:35.771639",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "ec26e2bd-ae6a-44ce-a339-70eec75fd558",
+    "user_id": "1bad97da-869e-405d-acbe-8a8a00cfc128",
+    "user_email": "araujoolivia@example.com",
+    "user_cpf": "26579034106",
+    "transaction_amount": 47.69,
+    "transaction_timestamp": "1993-07-27T17:40:57.909732",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "c6167065-2951-4402-be81-7926e3d6c05a",
+    "user_id": "e2101144-b62b-4f1c-aaea-3b1181116929",
+    "user_email": "silvabianca@example.com",
+    "user_cpf": "70289634547",
+    "transaction_amount": 43.48,
+    "transaction_timestamp": "2010-10-24T20:25:07.736408",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "610d9603-9ed4-478f-9022-c2b46ef65f8a",
+    "user_id": "788c96b9-eca9-421c-933a-048d4e04a424",
+    "user_email": "ncassiano@example.net",
+    "user_cpf": "68317450244",
+    "transaction_amount": 59.84,
+    "transaction_timestamp": "1970-07-15T18:48:09.733711",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "5cbffe5f-4472-4c9c-bf50-5fe3b66ccbf3",
+    "user_id": "c79926fc-2b04-4437-b284-aaf406259bdd",
+    "user_email": "paulo00@example.org",
+    "user_cpf": "79613802568",
+    "transaction_amount": 93.09,
+    "transaction_timestamp": "1994-07-11T11:06:12.120452",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "4806d4c0-5b5b-4054-be04-644265c313e5",
+    "user_id": "0847b160-a959-4a9d-be90-62135246551f",
+    "user_email": "mathiasnogueira@example.com",
+    "user_cpf": "03962715886",
+    "transaction_amount": 43.73,
+    "transaction_timestamp": "2013-03-02T15:36:44.585624",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "b6721fec-0712-412c-bfdc-74878ab27560",
+    "user_id": "578b0a58-678a-4d1a-a7f4-4bdc5bc1b840",
+    "user_email": "ipires@example.org",
+    "user_cpf": "31769854010",
+    "transaction_amount": 38.85,
+    "transaction_timestamp": "1986-02-16T02:50:38.866352",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "db10a485-958a-4273-9e6b-62f6d7e4d22e",
+    "user_id": "2d2dd1fc-5403-48be-b43d-0180b5f414e0",
+    "user_email": "peixotonicole@example.com",
+    "user_cpf": "83540719601",
+    "transaction_amount": 7.38,
+    "transaction_timestamp": "2023-05-12T16:10:37.026105",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "bd3ff998-1608-40ac-8886-22b601030656",
+    "user_id": "61c5dae6-8e0e-435c-b5ad-0271d0327142",
+    "user_email": "cirinojose@example.com",
+    "user_cpf": "82734105950",
+    "transaction_amount": 35.86,
+    "transaction_timestamp": "2008-07-08T13:14:07.179004",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "cc913007-637c-47aa-a335-20d127cf24a2",
+    "user_id": "0782b7dd-7a11-429e-8ee1-b320d2bcd9a4",
+    "user_email": "luisa72@example.org",
+    "user_cpf": "56824970158",
+    "transaction_amount": 22.35,
+    "transaction_timestamp": "2007-10-11T05:39:44.458471",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "38f616ef-f12b-487d-adc6-bc6e7715beec",
+    "user_id": "4f9a7485-aef0-4afd-9212-5e162d04b1fc",
+    "user_email": "faparecida@example.org",
+    "user_cpf": "97520431606",
+    "transaction_amount": 56.2,
+    "transaction_timestamp": "2004-01-29T19:59:44.430422",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "9b0f8981-1cd8-49cf-9621-c58e2cf8ea5b",
+    "user_id": "101fa3a3-7b3d-4784-bc2a-b337e4187e5c",
+    "user_email": "mcaldeira@example.net",
+    "user_cpf": "71684532035",
+    "transaction_amount": 28.19,
+    "transaction_timestamp": "2021-06-27T02:19:14.680136",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "7fdef268-84dc-43d6-8d56-1652a301f5b4",
+    "user_id": "697b5511-ea06-460f-b75f-af77b97dd04e",
+    "user_email": "andreviana@example.org",
+    "user_cpf": "05162347906",
+    "transaction_amount": 49.91,
+    "transaction_timestamp": "2003-09-01T03:59:31.138072",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "a8bc58a8-804c-4c89-a53a-4338df886a92",
+    "user_id": "9af0ec54-3daf-466c-8104-adceebd4531a",
+    "user_email": "limafernando@example.com",
+    "user_cpf": "29715603416",
+    "transaction_amount": 25.94,
+    "transaction_timestamp": "1991-12-25T13:37:47.130973",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "c56c301c-95cd-4353-9032-abde53220732",
+    "user_id": "6750eaaf-1ed7-41ca-a055-eb6315b45ede",
+    "user_email": "vleao@example.net",
+    "user_cpf": "23470961506",
+    "transaction_amount": 94.13,
+    "transaction_timestamp": "1989-03-22T11:25:11.685212",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "e22f4978-e8d4-4ea2-9f38-bef46f888345",
+    "user_id": "8c26272d-a03e-4f3a-aaff-085be2ae9101",
+    "user_email": "gcasa-grande@example.com",
+    "user_cpf": "14690732507",
+    "transaction_amount": 27.44,
+    "transaction_timestamp": "1989-07-16T02:27:18.112597",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "a401e53a-ad81-4478-8573-eea9a6c1702a",
+    "user_id": "4ace357c-06cd-43e3-aebb-c510b340052f",
+    "user_email": "nferreira@example.com",
+    "user_cpf": "85093176230",
+    "transaction_amount": 69.81,
+    "transaction_timestamp": "1981-11-27T11:57:46.529167",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "f065b348-b13f-4398-b0c3-329623e11b97",
+    "user_id": "f05cbc62-c335-4035-9b12-69c525b1f31a",
+    "user_email": "matheusfarias@example.org",
+    "user_cpf": "12897465328",
+    "transaction_amount": 11.58,
+    "transaction_timestamp": "1988-11-16T00:49:23.084435",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "8848cb4a-fddf-4520-9fba-bfbca772a436",
+    "user_id": "a8ec545c-a5c2-4bd9-81ab-b48aa7149c0a",
+    "user_email": "maria-florcorreia@example.org",
+    "user_cpf": "84596372128",
+    "transaction_amount": 10.87,
+    "transaction_timestamp": "1975-09-16T06:36:48.505969",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "c28a1427-ea8b-4116-839d-3bc33c3806f5",
+    "user_id": "b2844d57-8ae0-4304-ae84-a19806b3884b",
+    "user_email": "maria-fernandasantos@example.org",
+    "user_cpf": "24310975879",
+    "transaction_amount": 88.78,
+    "transaction_timestamp": "2017-02-19T15:40:04.665292",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "7a5f4493-4c99-40b1-a6e8-2c9a186382b4",
+    "user_id": "967646ce-0b0d-49cc-b7e9-55dde9866893",
+    "user_email": "rezendeantonio@example.net",
+    "user_cpf": "68519740375",
+    "transaction_amount": 46.14,
+    "transaction_timestamp": "1988-06-15T20:21:56.706419",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "a0e60dec-f906-406c-9470-90f0678c1413",
+    "user_id": "8179f400-3abe-4ce0-8546-3eb3ddd305f4",
+    "user_email": "pietra67@example.org",
+    "user_cpf": "40537198288",
+    "transaction_amount": 73.83,
+    "transaction_timestamp": "1982-02-04T11:33:29.856074",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "745cae55-335f-4f0f-b968-b9f96b0071f4",
+    "user_id": "3669845e-e011-4bef-97f7-cceb4c82d578",
+    "user_email": "camaramaria-julia@example.com",
+    "user_cpf": "70459168258",
+    "transaction_amount": 8.76,
+    "transaction_timestamp": "2016-11-27T23:05:48.790858",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "d4fb2f83-f0d1-435d-90c0-9a31f838ed2f",
+    "user_id": "8afe7654-5e72-493f-9744-58ef8882c9dd",
+    "user_email": "aylada-paz@example.net",
+    "user_cpf": "73620581444",
+    "transaction_amount": 43.93,
+    "transaction_timestamp": "2001-03-03T00:37:22.773643",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "e8237a9e-22dd-4a58-a378-f9e25c212445",
+    "user_id": "692a191e-9bc6-44e3-8c77-a8eaad850b4c",
+    "user_email": "nascimentojoao-felipe@example.net",
+    "user_cpf": "16253947052",
+    "transaction_amount": 98.53,
+    "transaction_timestamp": "1991-08-12T09:38:24.609652",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "b3de7277-2938-46ec-b360-e58ffb7e1c92",
+    "user_id": "48a519ab-1130-47d6-af3c-0b71396774a7",
+    "user_email": "ysantos@example.org",
+    "user_cpf": "43605719848",
+    "transaction_amount": 2.59,
+    "transaction_timestamp": "2002-04-26T07:21:49.435624",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "d19ec1ce-8fb7-49d4-b02f-b4dc28b66646",
+    "user_id": "151991fd-5176-4f56-97f5-7be470198b02",
+    "user_email": "diogo34@example.com",
+    "user_cpf": "40162579802",
+    "transaction_amount": 41.67,
+    "transaction_timestamp": "1985-08-05T05:56:20.151613",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "15b19980-0c92-48ae-adbf-deeaa2f01466",
+    "user_id": "f9e90a33-ea89-4cba-ac03-ecc4ace7ee21",
+    "user_email": "gustavo-henriqueteixeira@example.org",
+    "user_cpf": "91653482737",
+    "transaction_amount": 55.77,
+    "transaction_timestamp": "1993-09-19T12:10:58.029638",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "15120c7b-c917-4566-8838-71fec29c8f92",
+    "user_id": "31f4d2e1-ec59-4d60-969f-84c918b729a7",
+    "user_email": "garcialuara@example.com",
+    "user_cpf": "80453927629",
+    "transaction_amount": 81.55,
+    "transaction_timestamp": "1983-04-30T01:00:00.432591",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "896d1ac9-6084-4bcd-93fe-662dd1bb1333",
+    "user_id": "84d57e0b-d45b-4dc3-b09e-a8cc5033aab5",
+    "user_email": "josecirino@example.net",
+    "user_cpf": "63412978078",
+    "transaction_amount": 52.65,
+    "transaction_timestamp": "1997-01-26T12:27:39.592191",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "d548bd79-bc64-4442-b185-3c7bf9af21aa",
+    "user_id": "9888cc61-ea5e-4532-a2f9-667429481ac8",
+    "user_email": "vdas-neves@example.net",
+    "user_cpf": "86902531730",
+    "transaction_amount": 57.94,
+    "transaction_timestamp": "2025-03-27T05:13:58.822035",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "c2653a9d-396f-4235-a417-d70cab800d2a",
+    "user_id": "34a5bb12-a5cf-46d2-9fdf-11c806bcdd88",
+    "user_email": "asafe70@example.com",
+    "user_cpf": "90425617343",
+    "transaction_amount": 70.52,
+    "transaction_timestamp": "1973-02-16T06:20:02.734710",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "fc05d385-b5b6-424b-83c3-344b5e7790da",
+    "user_id": "b02b5707-8c63-4dd8-b051-fa5101e8ec91",
+    "user_email": "jesusana-liz@example.net",
+    "user_cpf": "79321480650",
+    "transaction_amount": 58.97,
+    "transaction_timestamp": "2006-03-11T09:27:12.158214",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "932d2c95-b1bc-4f9b-8a72-c39c8f5f45f5",
+    "user_id": "2137a585-b1ac-42e4-a539-3943319d5484",
+    "user_email": "rafael79@example.org",
+    "user_cpf": "25394678146",
+    "transaction_amount": 62.61,
+    "transaction_timestamp": "2021-06-20T08:14:24.362245",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "e2d09101-06c3-4a25-b901-378928a93d7e",
+    "user_id": "ccc3b82f-f3a2-4d6b-8b48-0e32965ad5dd",
+    "user_email": "teixeiradavi@example.com",
+    "user_cpf": "14239658764",
+    "transaction_amount": 5.69,
+    "transaction_timestamp": "1982-01-22T12:22:20.796178",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "12db7289-34ba-4745-9812-678cedf78f47",
+    "user_id": "62187175-c41f-4ae7-937e-6990d961b4ad",
+    "user_email": "yanda-rocha@example.org",
+    "user_cpf": "64097581384",
+    "transaction_amount": 50.11,
+    "transaction_timestamp": "1971-05-11T12:21:37.258608",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "d283ef17-15ae-4011-a520-fd32ef6539a1",
+    "user_id": "42eae813-63c3-468d-b9d4-15a9aafe8056",
+    "user_email": "vargasmelina@example.com",
+    "user_cpf": "89524670194",
+    "transaction_amount": 46.13,
+    "transaction_timestamp": "1993-05-01T07:51:51.051875",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "953aabdb-3cec-4798-babd-50af5efbb708",
+    "user_id": "a7cf4739-4dac-4c3f-948c-17b2d8eec837",
+    "user_email": "manuella78@example.com",
+    "user_cpf": "53046278144",
+    "transaction_amount": 18.6,
+    "transaction_timestamp": "2000-07-28T17:53:08.440050",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "d7410ca3-678d-48ff-a97c-5614ed2b2ac8",
+    "user_id": "e412d387-2bce-49fe-ad6d-56dee3cb4d99",
+    "user_email": "daniel20@example.net",
+    "user_cpf": "14963782022",
+    "transaction_amount": 16.13,
+    "transaction_timestamp": "1972-08-08T19:41:38.609004",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "af8e678e-6d49-415b-a61e-7840eb718668",
+    "user_id": "99a5f675-6b63-41a0-9f80-3e69dbf87417",
+    "user_email": "limanoah@example.org",
+    "user_cpf": "82975631030",
+    "transaction_amount": 27.97,
+    "transaction_timestamp": "2011-06-04T10:10:05.810685",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "9fa414c0-933f-48da-bb11-0f42b4241ba0",
+    "user_id": "c9a6c30d-ed74-40ac-965b-0c1578f1801c",
+    "user_email": "cnascimento@example.net",
+    "user_cpf": "23749801622",
+    "transaction_amount": 82.05,
+    "transaction_timestamp": "1981-01-12T07:57:29.570400",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "c20000b6-4bde-40d9-98a8-e8934a9e11d6",
+    "user_id": "78c6a616-68cd-4034-b389-7b012718566f",
+    "user_email": "jnovaes@example.com",
+    "user_cpf": "96150274306",
+    "transaction_amount": 18.44,
+    "transaction_timestamp": "2012-06-27T02:12:58.282852",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "a309aff8-010e-4031-9e3b-6d1d19b24da8",
+    "user_id": "6c1b4e53-48a6-468a-b0bf-66a35417d972",
+    "user_email": "enzo39@example.net",
+    "user_cpf": "23410586717",
+    "transaction_amount": 35.17,
+    "transaction_timestamp": "1974-12-17T05:31:27.639737",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "9045d67b-e8ee-4f70-973e-7d48f01f9351",
+    "user_id": "de986789-e822-4f6f-be5c-777c43835242",
+    "user_email": "ana-vitoriaguerra@example.com",
+    "user_cpf": "27953140616",
+    "transaction_amount": 56.24,
+    "transaction_timestamp": "1996-07-15T09:11:52.324112",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "52bc60f8-c99a-4948-a6c2-57688232d7db",
+    "user_id": "f5f6fb17-ebcf-429c-8284-25c4cabc8434",
+    "user_email": "cavalcantegabrielly@example.com",
+    "user_cpf": "40526871326",
+    "transaction_amount": 52.13,
+    "transaction_timestamp": "2017-08-08T08:27:59.593041",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "a140737c-565e-477f-a349-086f07cad2b1",
+    "user_id": "3d3af287-a8d0-4f1d-80f3-e6a0f6289adf",
+    "user_email": "albuquerqueleticia@example.com",
+    "user_cpf": "97843102523",
+    "transaction_amount": 2.82,
+    "transaction_timestamp": "1993-06-12T00:12:26.628890",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "17469417-7ffc-430f-ba13-dd6733799b0b",
+    "user_id": "b3215b8f-ca6c-4739-9e1a-7a1c96186e0e",
+    "user_email": "anacamara@example.org",
+    "user_cpf": "26573840992",
+    "transaction_amount": 4.07,
+    "transaction_timestamp": "1979-07-24T01:54:29.466975",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "caf2e16b-3838-46e6-b50e-66e3962a6aaf",
+    "user_id": "be40a56c-80bc-4fe0-99e2-77c315f060e7",
+    "user_email": "xvargas@example.com",
+    "user_cpf": "65813209433",
+    "transaction_amount": 79.93,
+    "transaction_timestamp": "2006-09-16T23:27:14.951157",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "9cbad967-e4b3-4c3b-8a9a-c90d8da56067",
+    "user_id": "81d41f57-c130-48c9-87ff-4cc4105cb979",
+    "user_email": "marianemarques@example.org",
+    "user_cpf": "42576308929",
+    "transaction_amount": 72.25,
+    "transaction_timestamp": "2021-09-29T06:02:39.797959",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "a0e72ba2-4867-47f1-91b3-b7442097cea2",
+    "user_id": "4a4832a2-a04a-45c9-963e-fd40773d48bf",
+    "user_email": "ana-laura74@example.com",
+    "user_cpf": "83412709603",
+    "transaction_amount": 62.74,
+    "transaction_timestamp": "2021-09-01T08:35:44.815024",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "fd872eea-7885-4565-b310-d0937ce20cea",
+    "user_id": "c9458f5c-aa5d-4223-b492-d5da4af0be95",
+    "user_email": "mouravalentina@example.net",
+    "user_cpf": "18654302771",
+    "transaction_amount": 23.1,
+    "transaction_timestamp": "2021-11-10T18:22:26.973799",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "a79d34be-cbd2-408c-9b2c-eef8534e9d9d",
+    "user_id": "3dd3ce0b-0221-4bbd-adeb-caff2fcace9a",
+    "user_email": "esther65@example.net",
+    "user_cpf": "59610482333",
+    "transaction_amount": 74.68,
+    "transaction_timestamp": "2017-07-17T23:28:27.228159",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "04ab984b-bde8-4503-b0a6-83782e8e559c",
+    "user_id": "fcf315ab-2c1f-41f5-b0c0-a8441775cd37",
+    "user_email": "wrodrigues@example.com",
+    "user_cpf": "40361587244",
+    "transaction_amount": 87.76,
+    "transaction_timestamp": "2004-08-10T18:05:03.576185",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "7e41bdc5-15fa-45bd-a3c3-9981fbe544d9",
+    "user_id": "2e9cb7f9-0c6d-4341-8816-863a9b1d7696",
+    "user_email": "rafaelvasconcelos@example.net",
+    "user_cpf": "05689741230",
+    "transaction_amount": 68.02,
+    "transaction_timestamp": "1980-05-02T01:01:43.174600",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "8427d273-5493-416a-8df9-a6a37c46045d",
+    "user_id": "ea549f03-53b0-4600-8a1f-e79d9ad5d177",
+    "user_email": "casa-grandebernardo@example.net",
+    "user_cpf": "71320965407",
+    "transaction_amount": 85.22,
+    "transaction_timestamp": "2000-04-16T19:33:00.058203",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "1244a672-28a7-47da-b805-b62f2ad1b622",
+    "user_id": "8a8bbe98-68c3-4a43-922c-a28f2103f8b0",
+    "user_email": "maria-lauraribeiro@example.com",
+    "user_cpf": "96371458264",
+    "transaction_amount": 69.94,
+    "transaction_timestamp": "1983-07-09T12:11:59.871200",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "34919f4c-21cc-4894-b741-0dc11f51d51b",
+    "user_id": "fdd22b96-2678-40e4-ae54-82b6e9a339f5",
+    "user_email": "lais55@example.org",
+    "user_cpf": "75162089303",
+    "transaction_amount": 66.19,
+    "transaction_timestamp": "1998-10-15T09:35:03.413389",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "a6abe2c5-f059-43dc-a362-ed880e9f0688",
+    "user_id": "6288fa30-7fb8-4702-a995-52ee62a49bc7",
+    "user_email": "joanamendes@example.net",
+    "user_cpf": "39507461884",
+    "transaction_amount": 36.99,
+    "transaction_timestamp": "1971-05-24T17:52:54.084898",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "f0570a8c-1e0c-4a3e-b2bb-dfa6bf6ed1c2",
+    "user_id": "cbc7caed-5c8f-4e1d-b1cc-33fb17e4050c",
+    "user_email": "dsilveira@example.org",
+    "user_cpf": "95180437288",
+    "transaction_amount": 74.03,
+    "transaction_timestamp": "2017-12-23T00:59:13.389542",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "1293a58c-70b6-42ae-a826-9a59dc421437",
+    "user_id": "9ae58ee2-0ea2-464c-b4bc-42cb9d69036d",
+    "user_email": "noahalmeida@example.org",
+    "user_cpf": "78315946048",
+    "transaction_amount": 53.11,
+    "transaction_timestamp": "1995-06-20T11:15:02.519163",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "adcadd01-1f1f-4dcd-8641-ce54b3e7b00d",
+    "user_id": "00e990aa-fc4c-4acf-a54d-d7a74c64daee",
+    "user_email": "mandrade@example.com",
+    "user_cpf": "35409618793",
+    "transaction_amount": 92.85,
+    "transaction_timestamp": "2019-08-23T01:47:36.663229",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "e9b601f8-3ff8-4cf7-954c-2e7445ad779e",
+    "user_id": "15f28ab3-8689-41bc-882b-1ff160b9787c",
+    "user_email": "wlopes@example.net",
+    "user_cpf": "52417938014",
+    "transaction_amount": 64.13,
+    "transaction_timestamp": "2004-05-15T10:14:33.672560",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "ee1b3c89-5324-4937-a201-8dfa2d943c56",
+    "user_id": "71a01633-9452-4164-a2df-2c8c8d8fd9ec",
+    "user_email": "davipires@example.com",
+    "user_cpf": "65832074190",
+    "transaction_amount": 25.04,
+    "transaction_timestamp": "1978-02-21T13:16:29.597483",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "4fa3c5fb-0543-4741-b4cb-383ab175772c",
+    "user_id": "69a510cc-2c9c-4857-9753-160a0df4d1ca",
+    "user_email": "vianamiguel@example.com",
+    "user_cpf": "97465081211",
+    "transaction_amount": 58.36,
+    "transaction_timestamp": "1970-02-07T17:34:04.820359",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "854a78b5-7126-44d9-bb7d-5160ca8fa4d2",
+    "user_id": "f36ebc7c-7a42-4f0b-b07e-d94a02234d0a",
+    "user_email": "xmontenegro@example.net",
+    "user_cpf": "90563184701",
+    "transaction_amount": 18.29,
+    "transaction_timestamp": "1980-10-08T12:31:44.721200",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "5e3e0000-0379-4959-ba8a-54d5c028acd2",
+    "user_id": "4eaa3c1d-155c-4959-baff-df87660dc89e",
+    "user_email": "franciscopinto@example.org",
+    "user_cpf": "09634185720",
+    "transaction_amount": 2.49,
+    "transaction_timestamp": "1971-10-03T11:26:57.059776",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "5696f031-70f9-4edd-ae91-6ac52d8841b9",
+    "user_id": "3c79fa91-d261-4785-8a20-753ebb4ec69e",
+    "user_email": "vianahenrique@example.org",
+    "user_cpf": "12694375855",
+    "transaction_amount": 29.35,
+    "transaction_timestamp": "1972-03-11T00:52:17.081554",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "10884110-fb5d-4e1a-a064-c8a0e71ecd65",
+    "user_id": "00f6f34f-a8cf-4ef7-9451-330ac904a2df",
+    "user_email": "pedro67@example.org",
+    "user_cpf": "29516047343",
+    "transaction_amount": 4.78,
+    "transaction_timestamp": "2022-10-25T16:48:57.310638",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "5163606d-32af-40ab-aa64-eebdbe11412f",
+    "user_id": "aa9275fc-2a00-46c1-9798-e7385e19e3cd",
+    "user_email": "domrocha@example.com",
+    "user_cpf": "90635172461",
+    "transaction_amount": 46.58,
+    "transaction_timestamp": "1993-06-14T01:59:37.452543",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "6b7a115f-d3f8-431a-974a-6f1bb0dd6000",
+    "user_id": "427be837-4456-447e-b911-0c6fe78aa940",
+    "user_email": "costavitor-hugo@example.net",
+    "user_cpf": "48790365100",
+    "transaction_amount": 52.22,
+    "transaction_timestamp": "1988-01-25T20:23:40.590117",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "c61f3895-b5dd-4a6c-8f5a-306f4bcdbdc7",
+    "user_id": "68912a13-a5a9-497b-be40-57ee866615eb",
+    "user_email": "maya76@example.com",
+    "user_cpf": "42587603900",
+    "transaction_amount": 92.36,
+    "transaction_timestamp": "1995-11-06T15:43:18.940614",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "1f7b8de9-3778-40d0-9ce0-7d88044c9c88",
+    "user_id": "99b33d0e-cd7c-4f36-b1f4-949d3b7d1512",
+    "user_email": "melissada-rosa@example.net",
+    "user_cpf": "98564231042",
+    "transaction_amount": 84.94,
+    "transaction_timestamp": "1984-05-31T05:19:40.316690",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "fa033ad1-b4f4-4ac3-af49-53e353c748bb",
+    "user_id": "edd7efc5-08df-4dc2-a25f-756565bd8d02",
+    "user_email": "qrezende@example.org",
+    "user_cpf": "47620835180",
+    "transaction_amount": 78.1,
+    "transaction_timestamp": "2002-06-21T02:08:28.330315",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "5bb57328-5c30-4645-b5bc-a93eeecc86c2",
+    "user_id": "4521ef47-b831-472d-bddd-d20dfdb6710d",
+    "user_email": "calebecosta@example.com",
+    "user_cpf": "25796314025",
+    "transaction_amount": 4.89,
+    "transaction_timestamp": "1996-11-09T22:38:31.287635",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "c6e89345-943d-4464-9742-ca31a0d2d6f3",
+    "user_id": "76c02650-8a3a-406d-acb2-801091149991",
+    "user_email": "ubrito@example.com",
+    "user_cpf": "35796204106",
+    "transaction_amount": 88.71,
+    "transaction_timestamp": "2009-05-06T06:02:50.694269",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "d2f334fb-d5e0-4e8c-ac7a-e0a5482416db",
+    "user_id": "79e4a0cb-55fa-4fdf-a84e-e665a735ff79",
+    "user_email": "cda-cunha@example.org",
+    "user_cpf": "24750819379",
+    "transaction_amount": 24.08,
+    "transaction_timestamp": "1975-04-22T22:07:36.496501",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "412205d4-cb3f-4957-b362-a2df3883f5f9",
+    "user_id": "9ad82f54-bd27-4bd1-b325-d69d7f02cd53",
+    "user_email": "oliviacirino@example.com",
+    "user_cpf": "58023741608",
+    "transaction_amount": 4.35,
+    "transaction_timestamp": "2001-11-20T17:47:27.352769",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "ac71e1b6-4a49-448a-acda-9c486ac6ec59",
+    "user_id": "f25dffaa-2cc4-4d85-9dee-ea138b7de4f9",
+    "user_email": "larissafogaca@example.net",
+    "user_cpf": "57104286985",
+    "transaction_amount": 34.09,
+    "transaction_timestamp": "1971-08-15T07:46:58.320226",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "5c38b599-7d9c-4dba-88c9-d37a1e32b3c3",
+    "user_id": "eeea90af-c1cb-471c-a6fd-14fd746ee0f9",
+    "user_email": "olivia69@example.org",
+    "user_cpf": "67809514393",
+    "transaction_amount": 85.22,
+    "transaction_timestamp": "1984-08-31T19:37:20.834267",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "8dc9b23c-2adb-4cab-9980-66210d4d3fe6",
+    "user_id": "d7b6c09d-b6e5-4df7-be04-9aa1494502ba",
+    "user_email": "brunamontenegro@example.org",
+    "user_cpf": "26054319752",
+    "transaction_amount": 65.93,
+    "transaction_timestamp": "1995-04-03T03:22:59.389437",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "e8a9b193-dc2d-415c-85e5-5af8be5c567b",
+    "user_id": "7a311b36-9ef7-4fc7-807a-72975c26adae",
+    "user_email": "cassianobenjamin@example.com",
+    "user_cpf": "31580942741",
+    "transaction_amount": 31.01,
+    "transaction_timestamp": "2004-09-05T19:22:21.195234",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "fcefd40c-2224-41a1-9766-0da9bf71d151",
+    "user_id": "0f2c35a9-dddf-44d8-9d4c-7e6c223998b5",
+    "user_email": "isis63@example.org",
+    "user_cpf": "92607481511",
+    "transaction_amount": 48.07,
+    "transaction_timestamp": "2016-05-07T09:41:38.749268",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "fc7a8584-5c9a-42d5-86e3-d4a89fad5d6b",
+    "user_id": "9464293c-99f5-449c-9f4f-f3e426fccefd",
+    "user_email": "galbuquerque@example.org",
+    "user_cpf": "07324658938",
+    "transaction_amount": 87.39,
+    "transaction_timestamp": "2019-09-18T20:39:30.109554",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "0f0fe5d3-6f3d-4819-b619-4bdd1586cc6a",
+    "user_id": "5e76d7e9-988e-4f51-9db3-4cb24df93da5",
+    "user_email": "gda-paz@example.com",
+    "user_cpf": "15329807441",
+    "transaction_amount": 23.02,
+    "transaction_timestamp": "1999-02-28T05:28:42.966085",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "876110a7-8571-41ad-aa12-68bed921ce65",
+    "user_id": "a9bf001b-0dfc-4adc-9fa5-c7c17ebe09e5",
+    "user_email": "anna-lizbrito@example.org",
+    "user_cpf": "47561982011",
+    "transaction_amount": 66.17,
+    "transaction_timestamp": "2007-12-30T14:58:06.196547",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "4c6f34e1-e63c-4370-9937-0a86cb40cd67",
+    "user_id": "1f7d8cbe-12ba-4cf9-abff-23dc2e2f9548",
+    "user_email": "rafaela67@example.net",
+    "user_cpf": "57846320190",
+    "transaction_amount": 47.2,
+    "transaction_timestamp": "1977-04-10T18:16:04.131179",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "7551b257-2e84-4fc8-963f-a2982c91edf6",
+    "user_id": "383832ca-318d-4f59-b0be-b459ab4f07f8",
+    "user_email": "nunesbeatriz@example.net",
+    "user_cpf": "18063527968",
+    "transaction_amount": 41.89,
+    "transaction_timestamp": "1980-03-08T16:37:45.585084",
+    "payment_method": "debit_card"
+  },
+  {
+    "transaction_id": "883c9b39-4822-45cd-bcc3-40b1abf33f23",
+    "user_id": "09cc13c6-7dfb-42cd-929e-ac35b68020b0",
+    "user_email": "das-nevesigor@example.net",
+    "user_cpf": "93204156761",
+    "transaction_amount": 5.74,
+    "transaction_timestamp": "1976-10-19T10:55:29.956252",
+    "payment_method": "boleto"
+  },
+  {
+    "transaction_id": "9f4868e9-0121-47fc-bc03-66bae934e133",
+    "user_id": "2d34e0dd-af14-45ee-8868-b5e67170f1e5",
+    "user_email": "da-rosamaria-vitoria@example.org",
+    "user_cpf": "07169435225",
+    "transaction_amount": 81.55,
+    "transaction_timestamp": "1994-11-22T01:40:18.072376",
+    "payment_method": "pix"
+  },
+  {
+    "transaction_id": "dc62f1f9-86fa-42d5-b820-c8f573e7a000",
+    "user_id": "2be7560a-c1ca-48d6-8307-e44547cdbc0d",
+    "user_email": "danielateixeira@example.com",
+    "user_cpf": "38725964119",
+    "transaction_amount": 82.68,
+    "transaction_timestamp": "1995-07-02T02:06:32.511490",
+    "payment_method": "credit_card"
+  },
+  {
+    "transaction_id": "8cc12ae8-53d6-4e7a-9228-ade6f67459ac",
+    "user_id": "1d560962-6d7a-42a7-baab-feea3632d8fd",
+    "user_email": "aparecidamatteo@example.org",
+    "user_cpf": "97268451300",
+    "transaction_amount": 47.21,
+    "transaction_timestamp": "2014-04-20T01:55:35.901423",
+    "payment_method": "credit_card"
+  }
+]
