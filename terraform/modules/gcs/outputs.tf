@@ -1,4 +1,4 @@
 output "bucket_name" {
-  description = "The name of the GCS bucket created."
+  description = "O nome do bucket GCS criado."
   value       = google_storage_bucket.bucket.name
 }

@@ -1,41 +1,41 @@
-# Data Contract for SecureGuard Lakehouse
-# Version: 1.0
-# Description: Defines the schema for financial transactions.
+# Contrato de Dados para o SecureGuard Lakehouse
+# Versão: 1.0
+# Descrição: Define o esquema para transações financeiras.
 schema:
   transaction_id:
     type: string
     required: true
-    description: "Unique identifier for the transaction (UUID)."
+    description: "Identificador único para a transação (UUID)."
   user_id:
     type: string
     required: true
-    description: "Identifier for the user associated with the transaction."
+    description: "Identificador do usuário associado à transação."
   user_email:
     type: string
     required: true
     format: email
     pii: true
-    description: "User's email address."
+    description: "Endereço de e-mail do usuário."
   user_cpf:
     type: string
     required: true
     pattern: "^[0-9]{11}$"
     pii: true
-    description: "User's CPF number (Brazilian individual taxpayer registry)."
+    description: "Número do CPF do usuário (Cadastro de Pessoas Físicas)."
   transaction_amount:
     type: number
     required: true
-    description: "The value of the transaction."
+    description: "O valor da transação."
   transaction_timestamp:
     type: string
     format: "date-time"
     required: true
-    description: "Timestamp of when the transaction occurred (ISO 8601)."
+    description: "Timestamp de quando a transação ocorreu (ISO 8601)."
   payment_method:
     type: string
     required: true
     enum: ["credit_card", "debit_card", "pix", "boleto"]
-    description: "Method of payment used."
+    description: "Método de pagamento utilizado."
 quality_checks:
   - type: "uniqueness"
     column: "transaction_id"

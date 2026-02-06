@@ -2,19 +2,19 @@
 # -*- coding: utf-8 -*-
 
 """
-Generates mock transaction data based on the defined data contract.
-Can optionally include invalid records for testing validation scripts.
+Gera dados de transação fictícios (mock) com base no contrato de dados definido.
+Pode opcionalmente incluir registros inválidos para testar scripts de validação.
 """
 
 import json
 import uuid
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
 import typer
 from faker import Faker
 
-# Initialize Faker, using the Brazilian provider for CPF
+# Inicializa o Faker, usando o provedor brasileiro para CPF
 fake = Faker("pt_BR")
 
 app = typer.Typer()
@@ -22,23 +22,23 @@ app = typer.Typer()
 
 def generate_transaction(is_invalid: bool = False) -> Dict[str, Any]:
     """
-    Generates a single mock transaction record.
+    Gera um único registro de transação fictícia.
 
     Args:
-        is_invalid: If True, generates a record that violates the data contract.
+        is_invalid: Se True, gera um registro que viola o contrato de dados.
 
     Returns:
-        A dictionary representing a single transaction.
+        Um dicionário representando uma única transação.
     """
     if is_invalid:
         return {
             "transaction_id": str(uuid.uuid4()),
             "user_id": str(uuid.uuid4()),
-            "user_email": "not-an-email",  # Invalid email format
-            "user_cpf": "12345",  # Invalid CPF pattern
-            "transaction_amount": -50.0,  # Invalid amount (should be positive)
+            "user_email": "not-an-email",  # Formato de e-mail inválido
+            "user_cpf": "12345",  # Padrão de CPF inválido
+            "transaction_amount": -50.0,  # Valor inválido (deve ser positivo)
             "transaction_timestamp": fake.iso8601(),
-            "payment_method": "cash",  # Invalid enum value
+            "payment_method": "cash",  # Valor de enumeração inválido
         }
 
     return {
@@ -59,31 +59,31 @@ def generate_transaction(is_invalid: bool = False) -> Dict[str, Any]:
 @app.command()
 def generate(
     num_records: int = typer.Option(
-        100, "--num-records", "-n", help="Number of mock records to generate."
+        100, "--num-records", "-n", help="Número de registros fictícios a serem gerados."
     ),
     num_invalid: int = typer.Option(
-        0, "--num-invalid", "-i", help="Number of invalid records to inject."
+        0, "--num-invalid", "-i", help="Número de registros inválidos a serem injetados."
     ),
     output_file: Path = typer.Option(
         "mock_transactions.json",
         "--output-file",
         "-o",
-        help="Path to the output JSON file.",
+        help="Caminho para o arquivo JSON de saída.",
         writable=True,
         resolve_path=True,
     ),
 ):
     """
-    Creates a file with mock transaction data.
+    Cria um arquivo com dados de transação fictícios.
     """
     if num_invalid > num_records:
         typer.secho(
-            "Number of invalid records cannot exceed total number of records.",
+            "O número de registros inválidos não pode exceder o número total de registros.",
             fg=typer.colors.RED,
         )
         raise typer.Exit(code=1)
 
-    typer.echo(f"Generating {num_records} total records ({num_invalid} invalid)...")
+    typer.echo(f"Gerando {num_records} registros no total ({num_invalid} inválidos)...")
 
     mock_data: List[Dict[str, Any]] = []
     for i in range(num_records):
@@ -93,10 +93,10 @@ def generate(
         with open(output_file, "w") as f:
             json.dump(mock_data, f, indent=2)
         typer.secho(
-            f"Successfully generated data in {output_file}", fg=typer.colors.GREEN
+            f"Dados gerados com sucesso em {output_file}", fg=typer.colors.GREEN
         )
     except IOError as e:
-        typer.secho(f"Error writing to file {output_file}: {e}", fg=typer.colors.RED)
+        typer.secho(f"Erro ao escrever no arquivo {output_file}: {e}", fg=typer.colors.RED)
         raise typer.Exit(code=1)
 
 

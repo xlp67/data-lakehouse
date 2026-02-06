@@ -1,4 +1,4 @@
-name: Data Pipeline CI
+name: CI do Pipeline de Dados
 
 on:
   push:
@@ -13,59 +13,59 @@ on:
 
 jobs:
   ci:
-    name: Continuous Integration
+    name: Integração Contínua
     runs-on: ubuntu-latest
 
     permissions:
       contents: 'read'
-      id-token: 'write' # Required for Workload Identity Federation
+      id-token: 'write' # Necessário para Workload Identity Federation
 
     steps:
-      - name: Checkout repository
+      - name: Checkout do repositório
         uses: actions/checkout@v4
 
-      # ------------------------------------------- 
-      # 1. GCP Authentication
-      # ------------------------------------------- 
-      - name: Authenticate to Google Cloud
+      # -------------------------------------------
+      # 1. Autenticação GCP
+      # -------------------------------------------
+      - name: Autenticar no Google Cloud
         id: auth
         uses: 'google-github-actions/auth@v2'
         with:
           workload_identity_provider: '${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}'
           service_account: '${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}'
 
-      # ------------------------------------------- 
-      # 2. Linting & Formatting
-      # ------------------------------------------- 
-      - name: Setup Terraform
+      # -------------------------------------------
+      # 2. Linting & Formatação
+      # -------------------------------------------
+      - name: Configurar Terraform
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.5.0
 
-      - name: Terraform Format Check
+      - name: Verificação de Formato do Terraform
         run: terraform fmt -check -recursive
         working-directory: ./terraform
 
-      - name: Set up Python
+      - name: Configurar Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: Install Python dependencies
+      - name: Instalar dependências Python
         run: |
           python -m venv .venv
           source .venv/bin/activate
           pip install -r requirements.txt
 
-      - name: Python Linting (Ruff)
+      - name: Linting de Python (Ruff)
         run: .venv/bin/ruff check .
 
-      - name: Python Formatting (Black)
+      - name: Formatação de Python (Black)
         run: .venv/bin/black --check .
       
-      # ------------------------------------------- 
-      # 3. Infrastructure Plan (Terraform)
-      # ------------------------------------------- 
+      # -------------------------------------------
+      # 3. Plano de Infraestrutura (Terraform)
+      # -------------------------------------------
       - name: Terraform Init
         id: init
         run: terraform init -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}"
@@ -79,28 +79,28 @@ jobs:
             -out=tfplan
         working-directory: ./terraform
 
-      # ------------------------------------------- 
-      # 4. Data Validation & Transformation (Python & dbt)
-      # ------------------------------------------- 
-      - name: Data Quality Gatekeeper
+      # -------------------------------------------
+      # 4. Validação e Transformação de Dados (Python & dbt)
+      # -------------------------------------------
+      - name: Gatekeeper de Qualidade de Dados
         run: |
           .venv/bin/python scripts/generate_mock_data.py --output-file mock_transactions.json
           .venv/bin/python scripts/validate_contract.py --data-file mock_transactions.json --contract ./contracts/transactions_v1.yaml
 
-      - name: Run dbt models
+      - name: Executar modelos dbt
         env:
           DBT_PII_SALT_SECRET: ${{ secrets.PII_SALT_SECRET }}
         run: |
-          # This step requires dbt to be configured with credentials to access BigQuery.
-          # For a CI environment, this is typically done via a profiles.yml file
-          # that uses the application default credentials from the 'auth' step.
+          # Este passo requer que o dbt seja configurado com credenciais para acessar o BigQuery.
+          # Para um ambiente de CI, isso é tipicamente feito via um arquivo profiles.yml
+          # que usa as credenciais padrão da aplicação obtidas no passo de 'auth'.
           .venv/bin/dbt build --project-dir ./dbt_project
 
-      # ------------------------------------------- 
-      # 5. Security Scan (Placeholder)
-      # ------------------------------------------- 
-      - name: Security Scan
+      # -------------------------------------------
+      # 5. Verificação de Segurança (Placeholder)
+      # -------------------------------------------
+      - name: Verificação de Segurança
         run: |
-          echo "Scanning for hardcoded secrets and exposed PII..."
-          # Example: gitleaks detect --source . --verbose
-          echo "Security scan placeholder complete."
+          echo "Verificando segredos hardcoded e PII exposta..."
+          # Exemplo: gitleaks detect --source . --verbose
+          echo "Verificação de segurança (placeholder) concluída."

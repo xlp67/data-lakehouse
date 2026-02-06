@@ -1,26 +1,26 @@
 variable "project_id" {
-  description = "The ID of the Google Cloud project."
+  description = "O ID do projeto Google Cloud."
   type        = string
 }
 
 variable "bucket_name" {
-  description = "The name of the GCS bucket."
+  description = "O nome do bucket GCS."
   type        = string
 }
 
 variable "location" {
-  description = "The location/region of the GCS bucket."
+  description = "A localização/região do bucket GCS."
   type        = string
 }
 
 variable "storage_class" {
-  description = "The storage class of the GCS bucket."
+  description = "A classe de armazenamento do bucket GCS."
   type        = string
   default     = "STANDARD"
 }
 
 variable "lifecycle_age_days" {
-  description = "Number of days after which to transition objects to Nearline storage."
+  description = "Número de dias após os quais os objetos devem ser movidos para o armazenamento Nearline."
   type        = number
   default     = 30
 }

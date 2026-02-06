@@ -3,36 +3,36 @@ version: 2
 
 models:
   - name: transactions_cleansed
-    description: "Cleansed and anonymized transaction data. This table is the source of truth for trusted data, with PII (Personally Identifiable Information) hashed."
+    description: "Dados de transação limpos e anonimizados. Esta tabela é a fonte da verdade para dados confiáveis, com PII (Informações de Identificação Pessoal) hasheadas."
     columns:
       - name: transaction_id
-        description: "Unique identifier for the transaction."
+        description: "Identificador único para a transação."
         tests:
           - unique
           - not_null
       - name: user_id
-        description: "Unique identifier for the user."
+        description: "Identificador único para o usuário."
         tests:
           - not_null
       - name: user_email_hashed
-        description: "The user's email address, hashed with SHA256 and a secret salt. This is considered PII."
+        description: "O endereço de e-mail do usuário, hasheado com SHA256 e um salt secreto. Isto é considerado PII."
         tags: ['pii']
       - name: user_cpf_hashed
-        description: "The user's CPF number, hashed with SHA256 and a secret salt. This is considered PII."
+        description: "O número do CPF do usuário, hasheado com SHA256 e um salt secreto. Isto é considerado PII."
         tags: ['pii']
         tests:
           - dbt_expectations.expect_column_values_to_match_regex:
               regex: "^[0-9a-f]{64}$"
       - name: transaction_amount
-        description: "The monetary value of the transaction."
+        description: "O valor monetário da transação."
         tests:
           - dbt_expectations.expect_column_values_to_be_positive
       - name: transaction_timestamp
-        description: "The timestamp when the transaction occurred."
+        description: "O timestamp de quando a transação ocorreu."
         tests:
           - not_null
       - name: payment_method
-        description: "The payment method used."
+        description: "O método de pagamento utilizado."
         tests:
           - accepted_values:
               values: ['credit_card', 'debit_card', 'pix', 'boleto']

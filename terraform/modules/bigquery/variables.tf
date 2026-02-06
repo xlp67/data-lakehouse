@@ -1,27 +1,27 @@
 variable "project_id" {
-  description = "The ID of the Google Cloud project."
+  description = "O ID do projeto Google Cloud."
   type        = string
 }
 
 variable "location" {
-  description = "The location/region for the BigQuery datasets."
+  description = "A localização/região para os datasets BigQuery."
   type        = string
 }
 
 variable "datasets" {
-  description = "A map of BigQuery datasets to create."
+  description = "Um mapa de datasets BigQuery a serem criados."
   type = map(object({
     description = string
   }))
   default = {
     "bronze" = {
-      description = "Raw, immutable data ingested from source systems."
+      description = "Dados brutos e imutáveis ingeridos dos sistemas de origem."
     },
     "silver" = {
-      description = "Cleansed, validated, and enriched data. PII is obfuscated."
+      description = "Dados limpos, validados e enriquecidos. PII é ofuscado."
     },
     "gold" = {
-      description = "Business-level aggregates and features, ready for analytics."
+      description = "Agregados e features de nível de negócio, prontos para análise."
     }
   }
 }

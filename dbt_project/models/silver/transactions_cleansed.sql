@@ -1,5 +1,5 @@
 -- models/silver/transactions_cleansed.sql
--- This model cleanses the raw data and anonymizes PII columns.
+-- Este modelo limpa os dados brutos e anonimiza as colunas de PII.
 
 {{
   config(
@@ -11,17 +11,17 @@ SELECT
     transaction_id,
     user_id,
     
-    -- Anonymize PII using the dedicated macro
+    -- Anonimiza PII usando a macro dedicada
     {{ anonymize('user_email') }} as user_email_hashed,
     {{ anonymize('user_cpf') }} as user_cpf_hashed,
     
-    -- Cast data types for consistency
+    -- Converte os tipos de dados para consistência
     CAST(transaction_amount AS NUMERIC) as transaction_amount,
     CAST(transaction_timestamp AS TIMESTAMP) as transaction_timestamp,
     LOWER(payment_method) as payment_method
 
 FROM {{ source('raw_lakehouse_data', 'transactions_raw') }}
 WHERE
-    -- Basic data quality check
+    -- Verificação básica de qualidade de dados
     transaction_amount > 0
     AND transaction_id IS NOT NULL

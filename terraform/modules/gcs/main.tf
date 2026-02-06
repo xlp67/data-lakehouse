@@ -3,7 +3,7 @@ resource "google_storage_bucket" "bucket" {
   name          = var.bucket_name
   location      = var.location
   storage_class = var.storage_class
-  force_destroy = true // Required for CI/CD, but use with caution in production
+  force_destroy = true # Necessário para CI/CD, mas use com cautela em produção
 
   uniform_bucket_level_access = true
 

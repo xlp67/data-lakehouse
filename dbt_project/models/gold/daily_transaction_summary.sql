@@ -1,6 +1,6 @@
 -- models/gold/daily_transaction_summary.sql
--- This model creates a business-level aggregate: a summary of
--- transaction volume and value per day.
+-- Este modelo cria um agregado de nível de negócio: um resumo do
+-- volume e valor das transações por dia.
 
 {{
   config(

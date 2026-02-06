@@ -1,19 +1,19 @@
 variable "project_id" {
-  description = "The ID of the Google Cloud project."
+  description = "O ID do projeto Google Cloud."
   type        = string
 }
 
 variable "service_account_id" {
-  description = "The ID for the dedicated pipeline Service Account."
+  description = "O ID para a Conta de Serviço dedicada do pipeline."
   type        = string
 }
 
 variable "gcs_bucket_name" {
-  description = "The name of the GCS bucket the service account needs access to."
+  description = "O nome do bucket GCS ao qual a conta de serviço precisa de acesso."
   type        = string
 }
 
 variable "bigquery_dataset_ids" {
-  description = "A list of BigQuery dataset IDs the service account needs access to."
+  description = "Uma lista de IDs de datasets do BigQuery aos quais a conta de serviço precisa de acesso."
   type        = list(string)
 }

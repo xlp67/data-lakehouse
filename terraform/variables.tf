@@ -1,22 +1,22 @@
 variable "gcp_project_id" {
-  description = "The Google Cloud Project ID to deploy resources into."
+  description = "O ID do Projeto Google Cloud onde os recursos serão implantados."
   type        = string
 }
 
 variable "gcp_region" {
-  description = "The primary Google Cloud region for resources."
+  description = "A região principal do Google Cloud para os recursos."
   type        = string
   default     = "us-central1"
 }
 
 variable "environment" {
-  description = "The deployment environment (e.g., 'dev', 'staging', 'prod')."
+  description = "O ambiente de implantação (ex: 'dev', 'staging', 'prod')."
   type        = string
   default     = "dev"
 }
 
 variable "project_name" {
-  description = "The name of the project, used for naming and tagging resources."
+  description = "O nome do projeto, usado para nomear e etiquetar recursos."
   type        = string
   default     = "secureguard"
 }

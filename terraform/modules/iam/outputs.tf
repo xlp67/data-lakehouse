@@ -1,4 +1,4 @@
 output "service_account_email" {
-  description = "The email of the created pipeline Service Account."
+  description = "O email da Conta de Serviço do pipeline criada."
   value       = google_service_account.pipeline_sa.email
 }
