@@ -5,10 +5,19 @@ resource "google_service_account" "pipeline_sa" {
   description  = "Conta de Serviço para o pipeline de dados ler do GCS e escrever no BigQuery."
 }
 
-# Concede a permissão Storage Object Admin para a SA no bucket GCS específico
-resource "google_storage_bucket_iam_member" "gcs_access" {
+# Concede permissões de menor privilégio no bucket GCS.
+# objectCreator para escrever novos dados brutos.
+# objectViewer para ler os dados para processamento.
+# Isso previne a exclusão acidental ou maliciosa de dados na camada Bronze.
+resource "google_storage_bucket_iam_member" "gcs_create_access" {
   bucket = var.gcs_bucket_name
-  role   = "roles/storage.objectAdmin"
+  role   = "roles/storage.objectCreator"
+  member = "serviceAccount:${google_service_account.pipeline_sa.email}"
+}
+
+resource "google_storage_bucket_iam_member" "gcs_view_access" {
+  bucket = var.gcs_bucket_name
+  role   = "roles/storage.objectViewer"
   member = "serviceAccount:${google_service_account.pipeline_sa.email}"
 }
 
